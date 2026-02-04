@@ -6,3 +6,7 @@ modules:
   - name: "Inventory"
     path: "./modules/inventory.yaml"
     status: "active"
+
+  - name: "Item"
+    path: "./modules/item.yaml"
+    status: "active"

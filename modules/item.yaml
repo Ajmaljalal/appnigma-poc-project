@@ -1,0 +1,63 @@
+# MODULE CONFIGURATION
+module_name: "Item"
+api_name: "Item__c"
+label: "Item"
+plural_label: "Items"
+description: "Represents a general item entity with core attributes."
+
+# FIELD DEFINITIONS
+fields:
+  - api_name: "Name__c"
+    label: "Item Name"
+    type: "Text"
+    length: 255
+    required: true
+    description: "The display name of the item."
+
+  - api_name: "SKU__c"
+    label: "SKU"
+    type: "Text"
+    length: 50
+    required: true
+    unique: true
+    description: "Stock Keeping Unit identifier."
+
+  - api_name: "Category__c"
+    label: "Category"
+    type: "Picklist"
+    required: false
+    values:
+      - "Electronics"
+      - "Clothing"
+      - "Food"
+      - "Furniture"
+      - "Other"
+    description: "The category this item belongs to."
+
+  - api_name: "Price__c"
+    label: "Price"
+    type: "Currency"
+    precision: 18
+    scale: 2
+    required: true
+    description: "The selling price of the item."
+
+  - api_name: "Weight__c"
+    label: "Weight"
+    type: "Number"
+    precision: 10
+    scale: 2
+    required: false
+    description: "Weight of the item in kilograms."
+
+  - api_name: "Is_Active__c"
+    label: "Is Active"
+    type: "Checkbox"
+    default: true
+    description: "Indicates whether the item is currently active."
+
+  - api_name: "Created_Date__c"
+    label: "Created Date"
+    type: "DateTime"
+    required: false
+    description: "The date and time when the item was created."
