@@ -21,3 +21,10 @@ fields:
     precision: 18
     scale: 0
     required: false
+
+  - api_name: "Warehouse_Location__c"
+    label: "Warehouse Location"
+    type: "Text"
+    length: 100
+    required: false
+    description: "The physical location of this item in the warehouse."
