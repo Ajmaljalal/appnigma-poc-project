@@ -1,0 +1,58 @@
+# ===========================================
+# EXAMPLE B: Webhook Receiver - Audit Log Object
+# ===========================================
+# This defines the External_Event_Log__c custom object for audit trail
+
+type: "object"
+api_name: "External_Event_Log__c"
+label: "External Event Log"
+plural_label: "External Event Logs"
+description: "Stores incoming webhook events for audit and processing"
+
+fields:
+  - api_name: "Event_Type__c"
+    label: "Event Type"
+    type: "Text"
+    length: 100
+    required: true
+    description: "Type of event (e.g., account.updated, contact.created)"
+
+  - api_name: "Event_ID__c"
+    label: "Event ID"
+    type: "Text"
+    length: 255
+    required: true
+    unique: true
+    external_id: true
+    description: "External system's unique event identifier"
+
+  - api_name: "Event_Timestamp__c"
+    label: "Event Timestamp"
+    type: "DateTime"
+    required: false
+    description: "When the event occurred in the source system"
+
+  - api_name: "Payload_Dump__c"
+    label: "Payload Dump"
+    type: "LongTextArea"
+    length: 131072
+    required: false
+    description: "Raw JSON payload for debugging and reprocessing"
+
+  - api_name: "Processing_Status__c"
+    label: "Processing Status"
+    type: "Picklist"
+    required: false
+    picklist_values:
+      - "Received"
+      - "Processing"
+      - "Completed"
+      - "Failed"
+    description: "Current processing status of this event"
+
+  - api_name: "Error_Message__c"
+    label: "Error Message"
+    type: "LongTextArea"
+    length: 32000
+    required: false
+    description: "Error details if processing failed"

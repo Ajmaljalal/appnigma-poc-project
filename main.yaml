@@ -10,3 +10,7 @@ modules:
   - name: "Item"
     path: "./modules/item.yaml"
     status: "active"
+
+  - name: "External Event Log"
+    path: "./modules/external_event_log.yaml"
+    status: "active"
