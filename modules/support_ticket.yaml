@@ -1,0 +1,48 @@
+type: "object"
+api_name: "Support_Ticket__c"
+label: "Support Ticket"
+plural_label: "Support Tickets"
+description: "Tracks customer support tickets"
+
+fields:
+  - api_name: "Ticket_Number__c"
+    label: "Ticket Number"
+    type: "Text"
+    length: 20
+    required: true
+    unique: true
+    description: "Unique identifier for the ticket"
+
+  - api_name: "Priority__c"
+    label: "Priority"
+    type: "Picklist"
+    picklist_values:
+      - "High"
+      - "Medium"
+      - "Low"
+    required: true
+    description: "Ticket priority level"
+
+  - api_name: "Status__c"
+    label: "Status"
+    type: "Picklist"
+    picklist_values:
+      - "Open"
+      - "In Progress"
+      - "Resolved"
+      - "Closed"
+    required: true
+    description: "Current status of the ticket"
+
+  - api_name: "Description__c"
+    label: "Description"
+    type: "LongTextArea"
+    required: false
+    description: "Detailed description of the issue"
+
+  - api_name: "Contact__c"
+    label: "Contact"
+    type: "Lookup"
+    reference_to: "Contact"
+    required: true
+    description: "Contact associated with the ticket"

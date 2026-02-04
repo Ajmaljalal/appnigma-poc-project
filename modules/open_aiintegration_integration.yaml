@@ -1,0 +1,28 @@
+type: "integration"
+api_name: "OpenAIIntegration"
+description: "Calls OpenAI API to summarize case description."
+direction: "outbound"
+trigger_object: "Case"
+trigger_event: "after_insert"
+
+http_config:
+  endpoint: "https://api.openai.com/v1/completions"
+  method: "POST"
+  auth_type: "Bearer"
+
+request_params: []
+
+request_body:
+  model: "text-davinci-003"
+  prompt: "Summarize the following case description: {{Record.Description}}"
+  max_tokens: 150
+  temperature: 0.7
+
+response_mapping:
+  target_record: "current_record"
+  map:
+    "choices[0].text": "Summary__c"
+
+error_handling:
+  action: "log_error"
+  retry_count: 3

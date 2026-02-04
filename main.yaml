@@ -26,3 +26,15 @@ modules:
   - name: "External Event Webhook"
     path: "./modules/external_event_webhook.yaml"
     status: "active"
+
+  - name: "Support Ticket"
+    path: "./modules/support_ticket.yaml"
+    status: "active"
+    
+  - name: "OpenAIIntegration"
+    path: "./modules/open_aiintegration_integration.yaml"
+    status: "active"
+
+  - name: "SlackCommandEndpoint"
+    path: "./modules/slack_command_endpoint_endpoint.yaml"
+    status: "active"

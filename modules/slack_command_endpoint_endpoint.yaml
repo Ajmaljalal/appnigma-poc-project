@@ -1,0 +1,33 @@
+type: "endpoint"
+api_name: "SlackCommandEndpoint"
+url_mapping: "/slack/command"
+description: "Receives Slack slash command webhooks."
+
+methods:
+  - verb: "POST"
+    input_schema:
+      - name: "command"
+        type: "String"
+        required: true
+      - name: "user_id"
+        type: "String"
+        required: true
+      - name: "channel_id"
+        type: "String"
+        required: true
+      - name: "response_url"
+        type: "String"
+        required: true
+      - name: "text"
+        type: "String"
+        required: false
+    response_schema:
+      - name: "success"
+        type: "Boolean"
+      - name: "message"
+        type: "String"
+    logic_steps:
+      - "Validate Slack request signature."
+      - "Parse command and arguments."
+      - "Execute command logic."
+      - "Return appropriate response to Slack."
