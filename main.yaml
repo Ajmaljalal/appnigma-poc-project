@@ -14,3 +14,7 @@ modules:
   - name: "External Event Log"
     path: "./modules/external_event_log.yaml"
     status: "active"
+
+  - name: "Clearbit Enricher"
+    path: "./modules/clearbit_enricher.yaml"
+    status: "active"

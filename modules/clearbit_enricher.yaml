@@ -1,0 +1,32 @@
+# ===========================================
+# EXAMPLE A: Lead Enrichment System - Integration (Callout)
+# ===========================================
+# This defines the outbound HTTP callout to Clearbit API
+
+type: "integration"
+api_name: "ClearbitEnricher"
+description: "Enrich Lead data using Clearbit Company API"
+direction: "outbound"
+
+trigger_object: "Lead_Enrichment__c"
+trigger_event: "after_insert"
+
+http_config:
+  endpoint: "https://company.clearbit.com/v2/companies/find"
+  method: "GET"
+  auth_type: "Bearer"
+
+request_params:
+  - key: "domain"
+    source: "Lead__r.Company"
+
+response_mapping:
+  target_record: "current_record"
+  map:
+    "metrics.employeesRange": "Company_Size__c"
+    "category.industry": "Industry_Classification__c"
+    "name": "Data_Source__c"
+
+error_handling:
+  action: "log_error"
+  retry_count: 0
