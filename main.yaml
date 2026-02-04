@@ -18,3 +18,11 @@ modules:
   - name: "Clearbit Enricher"
     path: "./modules/clearbit_enricher.yaml"
     status: "active"
+
+  - name: "Lead Enrichment"
+    path: "./modules/lead_enrichment.yaml"
+    status: "active"
+
+  - name: "External Event Webhook"
+    path: "./modules/external_event_webhook.yaml"
+    status: "active"

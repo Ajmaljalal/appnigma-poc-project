@@ -1,0 +1,49 @@
+# ===========================================
+# EXAMPLE A: Lead Enrichment System - Custom Object
+# ===========================================
+# This defines the Lead_Enrichment__c custom object
+
+type: "object"
+api_name: "Lead_Enrichment__c"
+label: "Lead Enrichment"
+plural_label: "Lead Enrichments"
+description: "Stores enrichment data for leads from external APIs like Clearbit"
+
+fields:
+  - api_name: "Lead__c"
+    label: "Lead"
+    type: "Lookup"
+    reference_to: "Lead"
+    required: true
+    description: "The Lead record this enrichment belongs to"
+
+  - api_name: "Company_Size__c"
+    label: "Company Size"
+    type: "Picklist"
+    required: false
+    picklist_values:
+      - "Small"
+      - "Medium"
+      - "Large"
+      - "Enterprise"
+    description: "Size classification of the company"
+
+  - api_name: "Industry_Classification__c"
+    label: "Industry Classification"
+    type: "Text"
+    length: 255
+    required: false
+    description: "Industry classification from enrichment provider"
+
+  - api_name: "Enrichment_Date__c"
+    label: "Enrichment Date"
+    type: "DateTime"
+    required: false
+    description: "When the enrichment was performed"
+
+  - api_name: "Data_Source__c"
+    label: "Data Source"
+    type: "Text"
+    length: 100
+    required: false
+    description: "The provider that supplied this enrichment data (e.g., Clearbit)"

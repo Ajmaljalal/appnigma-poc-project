@@ -1,0 +1,44 @@
+# ===========================================
+# EXAMPLE B: Webhook Receiver - REST Endpoint
+# ===========================================
+# This defines the Apex REST endpoint for receiving external webhooks
+
+type: "endpoint"
+api_name: "ExternalEventWebhook"
+url_mapping: "/webhook/external-events/*"
+description: "Accepts webhook events from external systems (account.updated, contact.created)"
+audit_object: "External_Event_Log__c"
+
+methods:
+  - verb: "POST"
+    input_schema:
+      - name: "event_type"
+        type: "String"
+        required: true
+      - name: "event_id"
+        type: "String"
+        required: true
+      - name: "timestamp"
+        type: "DateTime"
+        required: false
+      - name: "payload"
+        type: "Object"
+        required: false
+
+    response_schema:
+      - name: "success"
+        type: "Boolean"
+      - name: "salesforce_id"
+        type: "String"
+      - name: "message"
+        type: "String"
+
+    logic_steps:
+      - "Validate that event_type is one of: 'account.updated' or 'contact.created'"
+      - "Check for duplicate event_id in External_Event_Log__c to prevent reprocessing"
+      - "If duplicate found, return 200 OK with existing record ID and message 'Event already processed'"
+      - "Create a new External_Event_Log__c record with Event_Type__c, Event_ID__c, Event_Timestamp__c, and Payload_Dump__c (JSON serialized)"
+      - "Set Processing_Status__c to 'Received'"
+      - "Return 200 OK with the new record ID in salesforce_id and message 'Event logged successfully'"
+      - "On validation error: Return 400 Bad Request with success=false and error message"
+      - "On exception: Return 500 Internal Server Error with success=false and error message, also log to System.debug"
