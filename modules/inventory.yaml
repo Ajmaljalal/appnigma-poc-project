@@ -1,0 +1,23 @@
+# MODULE CONFIGURATION
+module_name: "Inventory Item"
+api_name: "Inventory_Item__c"
+label: "Inventory Item"
+plural_label: "Inventory Items"
+description: "Tracks physical goods in the warehouse."
+
+# FIELD DEFINITIONS
+fields:
+  - api_name: "Item_Cost__c"
+    label: "Item Cost"
+    type: "Currency" 
+    required: true
+    precision: 18
+    scale: 2
+    description: "Cost of the item in USD."
+
+  - api_name: "Stock_Level__c"
+    label: "Stock Level"
+    type: "Number"
+    precision: 18
+    scale: 0
+    required: false

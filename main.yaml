@@ -1,0 +1,8 @@
+project_name: "MySalesforceApp"
+api_version: "60.0"
+org_alias: "dev-org-01"
+
+modules:
+  - name: "Inventory"
+    path: "./modules/inventory.yaml"
+    status: "active"
