@@ -38,3 +38,7 @@ modules:
   - name: "SlackCommandEndpoint"
     path: "./modules/slack_command_endpoint_endpoint.yaml"
     status: "active"
+
+  - name: "User Record"
+    path: "./modules/user_record.yaml"
+    status: "active"

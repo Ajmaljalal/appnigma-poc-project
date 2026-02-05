@@ -1,0 +1,56 @@
+type: "object"
+api_name: "User_Record__c"
+label: "User Record"
+plural_label: "User Records"
+description: "Tracks user-specific information."
+
+fields:
+  - api_name: "First_Name__c"
+    label: "First Name"
+    type: "Text"
+    length: 255
+    required: true
+    unique: false
+    description: "The user's first name."
+
+  - api_name: "Last_Name__c"
+    label: "Last Name"
+    type: "Text"
+    length: 255
+    required: true
+    unique: false
+    description: "The user's last name."
+
+  - api_name: "Email__c"
+    label: "Email"
+    type: "Text"
+    length: 255
+    required: true
+    unique: true
+    description: "The user's email address."
+
+  - api_name: "Phone__c"
+    label: "Phone"
+    type: "Text"
+    length: 20
+    required: false
+    unique: false
+    description: "The user's phone number."
+
+  - api_name: "Status__c"
+    label: "Status"
+    type: "Picklist"
+    picklist_values:
+      - "Active"
+      - "Inactive"
+      - "Pending"
+    required: true
+    description: "The user's current status."
+
+  - api_name: "Department__c"
+    label: "Department"
+    type: "Text"
+    length: 255
+    required: false
+    unique: false
+    description: "The user's department."
