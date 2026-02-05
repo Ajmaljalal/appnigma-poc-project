@@ -1,0 +1,41 @@
+type: "object"
+api_name: "Account_Custom__c"
+label: "Account Custom"
+plural_label: "Account Customs"
+description: "Tracks custom account information"
+
+fields:
+  - api_name: "Account_Name__c"
+    label: "Account Name"
+    type: "Text"
+    length: 255
+    required: true
+    unique: false
+    description: "The name of the account"
+  - api_name: "Account_Type__c"
+    label: "Account Type"
+    type: "Picklist"
+    picklist_values:
+      - "Prospect"
+      - "Customer"
+      - "Partner"
+    required: true
+    description: "Type of account"
+  - api_name: "Annual_Revenue__c"
+    label: "Annual Revenue"
+    type: "Currency"
+    precision: 18
+    scale: 2
+    required: false
+    description: "Annual revenue of the account"
+  - api_name: "Is_Active__c"
+    label: "Is Active"
+    type: "Checkbox"
+    required: false
+    description: "Indicates if the account is active"
+  - api_name: "Contact__c"
+    label: "Contact"
+    type: "Lookup"
+    reference_to: "Contact"
+    required: false
+    description: "Related contact"

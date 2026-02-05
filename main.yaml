@@ -42,3 +42,7 @@ modules:
   - name: "User Record"
     path: "./modules/user_record.yaml"
     status: "active"
+
+  - name: "Account Custom"
+    path: "./modules/account_custom.yaml"
+    status: "active"
