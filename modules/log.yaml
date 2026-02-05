@@ -1,0 +1,36 @@
+type: "object"
+api_name: "Log__c"
+label: "Log"
+plural_label: "Logs"
+description: "Stores application logs"
+
+fields:
+  - api_name: "Log_Level__c"
+    label: "Log Level"
+    type: "Picklist"
+    picklist_values:
+      - "INFO"
+      - "WARN"
+      - "ERROR"
+      - "DEBUG"
+    required: true
+    description: "The severity level of the log entry"
+
+  - api_name: "Message__c"
+    label: "Message"
+    type: "LongTextArea"
+    required: true
+    description: "The log message"
+
+  - api_name: "Timestamp__c"
+    label: "Timestamp"
+    type: "DateTime"
+    required: true
+    description: "The timestamp of the log entry"
+
+  - api_name: "Source__c"
+    label: "Source"
+    type: "Text"
+    length: 255
+    required: false
+    description: "The source of the log entry"

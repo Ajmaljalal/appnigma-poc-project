@@ -46,3 +46,7 @@ modules:
   - name: "Account Custom"
     path: "./modules/account_custom.yaml"
     status: "active"
+
+  - name: "Log"
+    path: "./modules/log.yaml"
+    status: "active"
